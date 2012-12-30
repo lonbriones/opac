@@ -1,0 +1,97 @@
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="10%"><strong>Detail info </strong></td>
+    <td width="90%" align="right"><a href="#" onclick="javascript:history.back()">&lt;&lt; Back to search results</a></td>
+  </tr>
+</table>
+<div id="holdings">
+    <ul>
+{section name=index loop=$marc}
+	<li><div id="marctag">{$marc[index].tag}</div>: {$marc[index].value}</li>
+{/section}	
+  </ul>
+</div>
+
+{if $smarty.request.curhost lt 2}
+ <div id="detailview" align="center">
+{if $collection_status neq "" }
+<table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+  <tr>
+    <td><strong>Accession</strong></td>
+    <td><strong>Status</strong></td>
+    <td><strong>Location</strong></td>
+  </tr>
+  {section name=index loop=$collection_status}
+  <tr>
+    <td bgcolor="#FFFFFF">{$collection_status[index].ACCESSNO}</td>
+    <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="1" cellpadding="0">
+      <tr>
+		{if $collection_status[index].RENTID eq "1"}
+		<td><strong><font color="#FF0000">{$collection_status[index].RENT}</font></strong></td>
+
+		{elseif $collection_status[index].FLAG > "3"}
+ 	     <td><strong><font color="#FF0000">{$collection_status[index].FLAG}}</font></strong></td>   
+		{else}
+ 	     <td>{$collection_status[index].RENT}</td>
+		{/if} 
+
+ 
+
+        <td>{if $collection_status[index].RENTID eq "1"}
+      <form id="form1" name="form1" method="post" action="" style="padding:0;margin:0">
+        <label>
+          <input type="submit" name="Submit" value="Reserve" />
+          </label>
+        <input name="m" type="hidden" id="m" value="mylib" />
+        <input name="s" type="hidden" id="s" value="reserv" />
+		<input name="rent" type="hidden" id="rent" value="{$collection_status[index].RENTID}" />
+        <input name="act" type="hidden" id="act" value="reserve_item" />
+      </form> {/if} </td>
+      </tr>
+    </table>
+	
+	
+      </td>
+    <td bgcolor="#FFFFFF"> {$collection_status[index].LOCATION} </td>
+  </tr>
+  {/section}
+</table>
+{else}
+	
+{/if}
+
+   {if $AUTHOR_INTR neq "" }
+      <table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+      <strong>Author Introduce</strong><br>
+	  {$AUTHOR_INTR}
+      </table>
+   {/if}
+
+   {if $book_INDEX neq "" }
+      <table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+<!---      <strong>INDEX</strong><br> --->
+	  {$book_INDEX}
+      </table>
+   {/if}
+
+   {if $PREFACE neq "" }
+      <table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+      <strong>PREFACE</strong><br>
+	  {$PREFACE}
+      </table>
+   {/if}
+
+   {if $ABSTRACT neq "" }
+      <table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+      <strong>ABSTRACT</strong><br>
+	  {$ABSTRACT}
+      </table>
+   {/if}
+
+
+
+
+{/if}
+</div>
+{$serial}
+{include file="listview_buttons.html"}

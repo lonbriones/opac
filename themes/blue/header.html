@@ -1,0 +1,19 @@
+<table width="100%" border="0">
+  <tr>
+    <td><img src="{$THEMESDIR}/images/logo.jpg" border="0"/></td>
+    <td valign=center><div align="right"><div id="language_container">Select Language: {$language_dropdown}</div> <div id="utils">{$utils}</div></div></td>
+
+  </tr>
+</table>
+<div id="menu">
+  <ul id="nav">
+{section name=index loop=$menu}{if $menu[index].id eq $menu_sel}
+	<li class="active">{else}<li>{/if}<table border=0 cellpadding="0" cellspacing="0">
+	  <tr><td><a href="{$menu[index].link}"><img src="{$THEMESDIR}/images/{$menu[index].id}.gif" border=0/></a></td><td><a href="{$menu[index].link}">{$menu[index].label}</a></td></tr></table></li>
+{/section}
+  </ul>
+</div>
+<div id="submenu">
+<ul id="subnav">{section name=index loop=$submenu}<li><a href="{$submenu[index].link}">{$submenu[index].label}</a></li>
+		  {/section}</ul>
+</div>

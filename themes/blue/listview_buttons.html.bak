@@ -1,0 +1,39 @@
+{literal}
+<script>
+function selected_checkbox(){
+	var obj = document.getElementById('checkbox');
+}
+</script>
+{/literal}
+<br>
+<table border="0" cellspacing="1" cellpadding="0" align="center">
+  <tr>
+    <td><form style="padding:0;margin:0;">
+      {$hidden}
+      <input type="hidden" name="listview" value="1" />
+      <input name="submit" type="submit" class="button" value="New Search" />
+    </form></td>
+    <td>
+	<form method="get" style="padding:0;margin:0;" style="display:none">
+        <input name="submit2" type="submit" class="button" value="Save Record" onclick="selected_checkbox()"/>
+        <input type="hidden" name="marc_view" value="true" />
+        <input type="hidden" name="m" value="{$smarty.get.m}" />
+        <input type="hidden" name="a" value="{$smarty.get.a}" />
+        <input type="hidden" name="curhost" value="{$smarty.get.curhost}" />
+        <input type="hidden" name="id" value="{$smarty.get.id}" />
+	</form>
+	
+	</td>
+    <td>
+	<form method="get" style="padding:0;margin:0;">
+        <input name="submit2" type="submit" class="button" value="Save Record" />
+        <input type="hidden" name="save_marc" value="true" />
+        <input type="hidden" name="m" value="{$smarty.get.m}" />
+        <input type="hidden" name="a" value="{$smarty.get.a}" />
+        <input type="hidden" name="s" value="{$smarty.get.s}" />
+        <input type="hidden" name="curhost" value="{$smarty.get.curhost}" />
+        <input type="hidden" name="id" value="{$smarty.get.id}" />
+	</form>
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,13 @@
+<h2 align="center">Open Access Journal </h2>
+<p align="center"> This service covers free, full text, quality controlled scientific and scholarly journals.<br />
+There are now <strong>{$noofjournals}</strong> journals in the directory</p>
+<table border="0" align="center" cellpadding="10">
+  <tr>
+    <td>
+	{section name=outer loop=$category}
+	  <p><a href="?m=e-resource&s=oaj&category={$category[outer].SETNAME}">{$category[outer].SETNAME}</a> ({$category[outer].NCNT})</p>
+    {/section}    </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>

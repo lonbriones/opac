@@ -1,0 +1,148 @@
+<div id="detailview">
+  <div class="title">
+    <h2>Detail Info</h2>
+    <a href="{$search_url}">&lt;&lt; Back to search results</a>
+	<div class="clear">&nbsp;</div>
+  </div>
+  
+  
+  <div class="content">
+		{if $has_cover}<div class="cover"><img src="cover.php?isbn={$isbn}"/></div>{/if}
+		<div class="holdings">
+			
+			<table>
+
+			{section name=index loop=$marc}
+				
+				<tr>
+				<th width="10%" valign="top" scope="col">{$marc[index].tag}</th>
+				<td width="90%" scope="col">{$marc[index].value}</td>
+				</tr>	
+			{/section}			
+			</table>    
+		</div>
+		<div class="clear">&nbsp;</div>
+  </div>
+
+</div>
+
+
+
+
+	<div style="clear:both"></div>
+
+{if $smarty.request.curhost lt 2}
+ <div id="detailview" align="center">
+{if $collection_status neq "" }
+<table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+  <tr>
+    <td><strong>Accession</strong></td>
+    <td><strong>Status</strong></td>
+    <td><strong>Location</strong></td>
+  </tr>
+  {section name=index loop=$collection_status}
+  <tr>
+    <td bgcolor="#FFFFFF">{$collection_status[index].ACCESSNO}</td>
+    <td bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="1" cellpadding="0">
+      <tr>
+		{if $collection_status[index].RENTID eq "1"}
+		<td><strong><font color="#FF0000">{$collection_status[index].RENT}</font></strong></td>
+
+		{elseif $collection_status[index].FLAG > "3"}
+ 	     <td><strong><font color="#FF0000">{$collection_status[index].FLAG}</font></strong></td>   
+		{else}
+ 	     <td>{$collection_status[index].RENT}</td>
+		{/if} 
+
+ 
+
+        <td>{if $collection_status[index].RENTID eq "1"}
+      <form id="form1" name="form1" method="post" action="" style="padding:0;margin:0">
+        <label>
+          <input type="submit" name="Submit" value="Reserve" />
+          </label>
+        <input name="m" type="hidden" id="m" value="mylib" />
+        <input name="s" type="hidden" id="s" value="reserv" />
+		<input name="rent" type="hidden" id="rent" value="{$collection_status[index].RENTID}" />
+        <input name="act" type="hidden" id="act" value="reserve_item" />
+      </form> {/if} </td>
+      </tr>
+    </table>
+	
+	
+      </td>
+    <td bgcolor="#FFFFFF"> {$collection_status[index].LOCATION} </td>
+  </tr>
+  {/section}
+</table>
+{else}
+	
+{/if}
+
+   {if $AUTHOR_INTR neq "" }
+      <table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+      <strong>Author Introduce</strong><br>
+	  {$AUTHOR_INTR}
+      </table>
+   {/if}
+
+   {if $book_INDEX neq "" }
+      <table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+<!---      <strong>INDEX</strong><br> --->
+	  {$book_INDEX}
+      </table>
+   {/if}
+
+   {if $PREFACE neq "" }
+      <table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+      <strong>PREFACE</strong><br>
+	  {$PREFACE}
+      </table>
+   {/if}
+
+   {if $ABSTRACT neq "" }
+      <table width="100%" border="0" cellpadding="5" bgcolor="#DDE4FF">
+      <strong>ABSTRACT</strong><br>
+	  {$ABSTRACT}
+      </table>
+   {/if}
+
+
+
+
+{/if}
+
+</div>
+{$serial}
+{include file="listview_buttons.html"}
+		
+
+<script type="text/javascript">
+var url = '{$preview_link}';
+
+{literal}
+function mycallback(bookinfo) {
+	$.each(bookinfo, function(index, value){
+		if ($('.cover').length == 0 && value['thumbnail_url']) {
+			$('.holdings').children().before('<div class="cover"><img src="'+value['thumbnail_url']+'"/></div>');
+		}
+		if (value['embeddable']) {
+			$('.cover').append('<div class="limited_preview_link" align="center"><a href="'+url+'"><strong>Available<br>Limited<br>Preview</strong></a></div>');
+			$('.preview').show();
+			/*
+			$('.limited_preview_link a').click(function(){
+				$('.holdings').toggle();
+				$('.preview').toggle();
+			})
+			$('.limited_preview_close_link a').click(function(){
+				$('.holdings').toggle();
+				$('.preview').toggle();
+			})
+			*/
+		}
+	})
+
+}
+{/literal}
+</script>
+<script src="http://books.google.com/books?bibkeys=ISBN:{$isbn}&jscmd=viewapi&callback=mycallback"></script>

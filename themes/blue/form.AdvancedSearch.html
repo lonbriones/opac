@@ -1,0 +1,53 @@
+<h3 align="center">{$searchtitle}</h3>
+
+<div align="center" class="error">{$errormsg}</div>
+
+<form name="form1" method="get" action=""> 
+{$hidden}
+<input type="hidden" name="search" value="1">
+
+ <table width="477" border="0" align="center" cellpadding="5" cellspacing="0" class="box1">
+    <tr>
+      <td width="62" bgcolor="#DFD2FF"><strong>{$field_label}</strong></td>
+      <td width="247" bgcolor="#DFD2FF"><strong>{$search_term}</strong></td>
+      <td width="143" bgcolor="#DFD2FF"><strong>Boolean</strong></td>
+    </tr>
+    <tr>
+      <td>{$field0}      </td>
+      <td><input name="term[0]" type="text" class="input" id="keyword" value="{$term0}" size="40"></td>
+      <td>{$boolean0} </td>
+    </tr>
+    <tr>
+      <td>{$field1}</td>
+      <td><input name="term[1]" type="text" class="input" id="term[0]" value="{$term0}" size="40" /></td>
+      <td>{$boolean1} </td>
+    </tr>
+    <tr>
+      <td>{$field2}</td>
+      <td><input name="term[2]" type="text" class="input" id="term[2]" value="{$term0}" size="40" /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="3"><table width="100%" border="0">
+        <tr>
+          <td width="52%">{$mtype}</td>
+          <td width="48%">{$location}</td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td colspan="3">{$wordopt}</td>
+    </tr>
+    <tr>
+      <td colspan="3">{$databases}</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Submit" value="  {$search_term}  " class="button" />
+        <input type="reset" name="Submit2" value="  {$reset}  " class="button" /></td>
+      <td><a href="?m=search&s={$base}&mode=basic">Simple Search</a></td>
+    </tr>
+  </table>
+  <input name="mode" type="hidden" id="mode" value="advanced" />
+</form>
+  <div align="center"></div>

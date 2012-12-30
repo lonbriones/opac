@@ -1,0 +1,25 @@
+<h3><strong>View your requested books </strong></h3>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+  
+  {section name=outer loop=$requestdat}
+    <tr>
+      <td colspan="5" bgcolor="#FFFFFF">&nbsp;</td>
+    </tr>
+  <tr>
+    <td colspan="5" bgcolor="#FFFFFF"><p>Title: <strong>{$requestdat[outer].TITLE} 
+    </strong><br>
+    Author: {$requestdat[outer].AUTHOR}<br>
+    Publisher: {$requestdat[outer].PUBLISHER}<br>
+    {if $requestdat[outer].RQYEAR neq ""} Year: {$requestdat[outer].RQYEAR}  <br>{/if}
+    ISBN: {$requestdat[outer].ISBN}<br>
+      Date of request: {$requestdat[outer].RQDATE}<br>
+      <strong>Status:</strong> {$requestdat[outer].STATUS}<br>
+    </p>    </td>
+  </tr>
+  
+  <tr>
+    <td colspan="5" class="linebottom">&nbsp;</td>
+  </tr>
+  
+  {/section}
+</table>

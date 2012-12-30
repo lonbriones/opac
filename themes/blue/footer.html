@@ -1,0 +1,13 @@
+<div id="footer" align="center">
+<br>
+{$libraryname}<br>
+{$libraryaddress}<br>
+{$libraryphone}<br>
+</div>
+
+<!--Dialog box contents-->
+{if $islogon}
+<div id="dialogExpired" title="Session (Page) Expired!" style="display:none"><p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 0 0;"></span> Your session has expired!<p id="dialogText-expired"></p></div>
+
+<div id="dialogWarning" title="Session (Page) Expiring!" style="display:none"><p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 0 0;"></span>Hello {$borrower_name}, are you still there?<br/>Your session will expire in <span id="dialogText-warning"></span> seconds!</div>
+{/if}

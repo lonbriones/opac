@@ -1,0 +1,55 @@
+<div id="hostdetail">
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+      <td>Search Result: <strong>{$hostname}</strong></td>
+      <td align="right">&nbsp;</td>
+    </tr>
+  </table>
+</div>
+<div id="listviewtab">
+<table width="99%" align="center" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td></td>
+    </tr>
+  <tr>
+    <td><table width="100%" border="0">
+      <tr>
+        <td>{$hitsinfo}</td>
+        <td align="right">{$nav}</td>
+      </tr>
+    </table></td>
+    </tr>
+  <tr>
+    <td bgcolor="#FFFFFF"><table width="100%" border="0">
+      <tr>
+        <td bgcolor="#FFFFFF" class="sr_header">Callno</td>
+        <td bgcolor="#FFFFFF" class="sr_header">Title</td>
+        <td bgcolor="#FFFFFF" class="sr_header">Author</td>
+        <td bgcolor="#FFFFFF" class="sr_header">Publisher</td>
+        <td bgcolor="#FFFFFF" class="sr_header">Year</td>
+      </tr>
+      {section name=index loop=$marc}
+  <tr>
+    <td bgcolor="#FFFFFF" class="sr_row">{parse marc=$marc[index] field='callno'}&nbsp;</td>
+    <td bgcolor="#FFFFFF" class="sr_row"><a href="?m=search&a=details&s=other&id={$smarty.section.index.index}&curhost={$curhost}&mode={$mode}">{parse marc=$marc[index] field='title'}</a>&nbsp;</td>
+    <td bgcolor="#FFFFFF" class="sr_row">{parse marc=$marc[index] field='author'}&nbsp;</td>
+    <td bgcolor="#FFFFFF" class="sr_row">{parse marc=$marc[index] field='publisher'}&nbsp;</td>
+    <td bgcolor="#FFFFFF" class="sr_row">{parse marc=$marc[index] field='year'}&nbsp;</td>
+  </tr>
+      {/section}
+    </table></td>
+    </tr>
+  
+
+  
+  <tr>
+    <td></td>
+    </tr>
+</table>
+</div>
+{include file="listview_buttons.html"}
+{if $otherhits neq ""}
+<table width="" border="0" class="box1" align="center">
+  <tr><td><strong>Hits of Other Resources</strong><blockquote>{$otherhits}</blockquote></td></tr>
+</table>
+{/if}

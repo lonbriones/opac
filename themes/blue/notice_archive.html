@@ -1,0 +1,20 @@
+<h2>Notice Archive
+  </h2>
+<table width="100%" border="0" cellpadding="10" cellspacing="0">
+              <tr>
+                <td valign="top" bgcolor="#DFEFFF" class="linebottom"><strong>Dates</strong></td>
+                <td valign="top" bgcolor="#DFEFFF" class="linebottom"><strong>Notice</strong> (<u>{$curdate}</u>)</td>
+  </tr>
+              <tr>
+                <td width="200" valign="top" class="lineright"><p><a href="?m=home&amp;s=notice_archive">Display all notices</a></p>
+                  <p>
+                  {section name=outer loop=$notice_dates} <strong><a href="?m=home&amp;s=notice_archive&amp;date={$notice_dates[outer].PDATE}">{getDisplayDate pdate = $notice_dates[outer].PDATE}</a></strong> ({$notice_dates[outer].PDATE_COUNT}) <br />
+{/section}</p></td>
+                <td valign="top" bgcolor="#FFFFFF">
+                  <p>{section name=outer loop=$notice} <strong>{$notice[outer].TITLE}</strong> <br />
+                    {$notice[outer].MSG} <br/>
+                    <br/>
+                  {/section} </p></td>
+              </tr>
+</table>
+			<p>&nbsp;</p>

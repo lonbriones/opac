@@ -1,0 +1,15 @@
+<h2 align="center">Open Access Journal </h2>
+<table border="0" align="center" cellpadding="10">
+  <tr>
+    <td>
+	{section name=outer loop=$category}
+    {if $smarty.section.outer.index is odd by 1}<p><a href="?m=e-resource&s=oaj&category={$category[outer].SETNAME}">{$category[outer].SETNAME}</a> ({$category[outer].NCNT})</p>
+    {/if}{/section}
+    </td>
+    <td>{section name=outer loop=$category}
+    {if $smarty.section.outer.index is odd by 2}
+      <p><a href="?m=e-resource&s=oaj&category={$category[outer].SETNAME}">{$category[outer].SETNAME}</a> ({$category[outer].NCNT})</p>
+    {/if}{/section} </td>
+  </tr>
+</table>
+<p>&nbsp;</p>

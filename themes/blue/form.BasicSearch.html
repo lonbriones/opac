@@ -1,0 +1,41 @@
+<h3 align="center">{$searchtitle}</h3>
+<form action="" method="get" name="form1" id="form1">
+{$hidden}
+<div align="center"><span class="error">{$errormsg} </span>
+</div>
+<table width="500" align="center" cellpadding="5" cellspacing="0" class="box1"> 
+ 
+
+  
+  <tr>
+    <td width="1%" bgcolor="#FCFFD2"><strong>{$field_label}</strong></td>
+    <td bgcolor="#FCFFD2"><strong>{$search_term}</strong></td>
+    </tr>
+  <tr>
+    <td>{$field0}</td>
+    <td><input name="term[0]" type="text" class="input" id="keyword" value="{$term0}" size="70"  onfocus="VirtualKeyboard.attachInput(this)" class="keyboardInput"/></td>
+	<td width="20"><div id="keyboard_icon" onclick="VirtualKeyboard.toggle('keyword','keyboard'); return false;">&nbsp;</div></td>
+    </tr>
+  <tr>
+    <td colspan="3" align="center"><div id="keyboard"></div>{$wordopt}</td>
+    </tr>
+  <tr>
+    <td colspan="3">{$databases}</td>
+    </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td align="center"><input type="submit" name="Submit" value="  Search  " class="button" />
+      <input type="reset" name="Submit2" value="  Reset  " class="button" />
+	  {$saveditems}
+	  <input name="mode" type="hidden" id="mode" />
+	    <input type="hidden" name="search" value="1" />	  </td>
+    </tr>
+</table>
+
+</form>
+          <div align="center"><a href="?m=search&amp;s={$base}&amp;mode=advanced">
+                
+                  {$advancedsearch}</a>          </div>
+				  
+				  
+				  

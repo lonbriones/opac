@@ -1,0 +1,90 @@
+Search Result: <strong>{$hostname}</strong> 
+<div id="listview">
+<div class="bar">
+	<div class="hitsinfo">
+	{$hitsinfo}
+	</div>
+
+	<div class="nav">
+	{$nav}
+	</div>
+	<div class="clear"></div>
+</div>
+
+
+{assign var='Color1' value='#edf1ff'}   {* Even *}
+{assign var='Color2' value='#fff'}   {* Odd *} 
+
+  {section name=index loop=$marc}
+  
+{if $i++ is odd by 1}
+   {assign var='color' value=$Color1}
+{else}
+   {assign var='color' value=$Color2}
+{/if} 
+
+
+
+<div class="search-item" style="background-color: {$color}" id="item-{parse marc=$marc[index] field='code'}">
+	
+	{has_cover marc=$marc[index] field='isbn'}
+	<div class="info">
+		<div class="title"><a href="?m=search&a=details&id={parse marc=$marc[index] field='code'}&curhost={$curhost}&mode={$mode}">{parse marc=$marc[index] field='title'}</a></div>
+		<div class="format">Format: <span>{parse marc=$marc[index] field='fmt'}</span></div>
+		<div class="author">Author: <span>{parse marc=$marc[index] field='author'}</span></div>
+		<div class="callno">Call No. <span>{parse marc=$marc[index] field='callno'}</span></div>
+		<div class="publisher">Publisher: <span>{parse marc=$marc[index] field='publisher'}</span></div>
+		<div class="year">Year: <span>{parse marc=$marc[index] field='year'}</span></div>
+		<div class="isbn">ISBN: <span>{parse marc=$marc[index] field='isbn'}</span></div>
+	<div class="holdings">
+		{assign var='fid' value=parse marc=$marc[index] field='code'}
+		{display_holdings marc=$marc[index]}
+		{$collection_status}
+	</div>
+
+	</div>
+	
+	  
+	<div class="clear"></div>
+	
+</div>
+
+  {/section}
+<div class="bar">
+	<div class="hitsinfo">
+	{$hitsinfo}
+	</div>
+
+	<div class="nav">
+	{$nav}
+	</div>
+	<div class="clear"></div>
+</div>    
+  </div>
+
+  {literal}
+<script type="text/javascript">
+function mycallback(bookinfo) {
+
+	$.each(bookinfo, function(index, value){
+		
+		
+		
+		if (value['thumbnail_url']) {
+			//alert('here');
+			console.log(index);
+			//$('.search-item').children().before('<div class="cover"><img src="'+value['thumbnail_url']+'"/></div>');
+			$('#isbn-'+index).html('<img src="'+value['thumbnail_url']+'"/>');
+		}
+		if (value['embeddable']) {
+			var link = $('#isbn-'+index).next().find('.preview_link').html();
+			$('#isbn-'+index).next().find('table').before('<div class="limited_preview_link"><a href="'+link+'">Available Limited Preview</a></div>');
+		}
+		
+	})
+
+}
+</script>
+
+{/literal}
+<script src="http://books.google.com/books?bibkeys={get_isbns marc=$marc}&jscmd=viewapi&callback=mycallback"></script>

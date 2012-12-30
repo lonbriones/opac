@@ -1,0 +1,19 @@
+<h2>Open Access Journal </h2>
+<table width="100%" border="0" align="center" cellpadding="10">
+  <tr>
+    <td colspan="2" bgcolor="#F5F5F5" class="linebottom"><table width="100%" border="0">
+        <tr>
+          <td>Category: <strong>{$category_name} / {$subject}</strong></td>
+          <td align="right"><a href="?m=e-resource&s=oaj">&lt;&lt; Back to Main Category</a> </td>
+        </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td width="25%" valign="top" class="lineright">{section name=outer loop=$category}      <a href="?m=e-resource&s=oaj&category={$category_name}&subject={$category[outer].SUB_SETNAME}">{$category[outer].SUB_SETNAME}</a> ({$category[outer].NCNT})<br>
+    {/section} </td>
+    <td width="75%" valign="top"><strong>{$subject}</strong>
+      <p>{section name=outer loop=$subjectlist} <a href="?m=e-resource&s=oaj&category={$category_name}&subject={$category[outer].SUB_SETNAME}">{$subjectlist[outer].XML}</a><br>
+    {/section} </p></td>
+  </tr>
+</table>
+<p>&nbsp;</p>

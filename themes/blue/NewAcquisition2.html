@@ -1,0 +1,31 @@
+<h3>New Acquisition</h3>
+<table width="100%" border="0">
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>
+<table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#CCCCCC">
+      <tr>
+        <td width="1" bgcolor="#E6F9E6">CALLNO</td>
+        <td width="1" bgcolor="#E6F9E6">LOCATION</td>
+        <td bgcolor="#E6F9E6">TITLE</td>
+        <td bgcolor="#E6F9E6">AUTHOR</td>
+        <td bgcolor="#E6F9E6">PUBLISHER</td>
+        <td width="1" bgcolor="#E6F9E6">DATE</td>
+      </tr>
+	  {section name=outer loop=$newacq_dat}
+      <tr>
+        <td bgcolor="#FFFFFF">{$newacq_dat[outer].CALLNO}&nbsp;</td>
+        <td bgcolor="#FFFFFF">{$newacq_dat[outer].LOCATION}&nbsp;</td>
+        <td bgcolor="#FFFFFF">{$newacq_dat[outer].TITLE}&nbsp;</td>
+        <td bgcolor="#FFFFFF">{$newacq_dat[outer].AUTHOR}&nbsp;</td>
+        <td bgcolor="#FFFFFF">{$newacq_dat[outer].PUBLISHER}&nbsp;</td>
+        <td bgcolor="#FFFFFF">{$newacq_dat[outer].DATE}&nbsp;</td>
+      </tr>
+	  {/section}
+	  </table>	
+	</td>
+  </tr>
+</table>
+<p>&nbsp;</p>

@@ -1,0 +1,29 @@
+<form name="form1" method="post" action="{$action}">
+  <table width="50%" align="center" cellpadding="5">
+    <tr>
+      <td><h3 align="center">Admin Login </h3></td>
+    </tr>
+    <tr>
+      <td valign="top"><table width="100%" border="0" align="center" class="box1">
+        <tr>
+          <td colspan="2" bgcolor="#CCCCCC"><strong>Login </strong></td>
+        </tr>
+        <tr>
+          <td width="38%">&nbsp;</td>
+          <td width="62%">&nbsp;</td>
+        </tr>
+        <tr>
+          <td align="right">Password</td>
+          <td><input name="password" type="password" id="password" size="25" maxlength="15" /></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td><input type="submit" name="Submit" value="Login" /></td>
+        </tr>
+      </table>        
+        <p><span class="error">{$error}</span></p>
+      </td>
+    </tr>
+  </table>
+  {$hidden}
+</form>

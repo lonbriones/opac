@@ -1,0 +1,29 @@
+#wrapper {
+	margin-top: auto;
+	margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+}
+#keyboard_icon {
+    background-image: url("images/kb.jpeg");
+    height: 16px;
+    left: 400px;
+    position: relative;
+    top: -20px;
+    width: 22px;
+}
+#keyword {
+    width: 424px;
+}
+#VirtualKeyboard #kbDesk div.kbButtona {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+}
+#searchform {
+	
+	margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}

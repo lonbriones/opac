@@ -1,0 +1,52 @@
+<h3 align="center">Acquisitions
+</h3>
+<div id="hostdetail">
+  <table width="100%" border="0" cellpadding="5" cellspacing="4" bgcolor="#DFF4FF">
+    <tr>{section name=outer loop=$countbymonths}
+        <td align="center" bgcolor="#F4FCFF"><a href="?{$countbymonths[outer].QRYSTR}">{$countbymonths[outer].DATE}</a> (<strong>{$countbymonths[outer].COUNT}</strong>) </td>
+      {/section}</tr>
+  </table>
+</div>
+<div id="listviewtab">
+<table width="99%" align="center" cellpadding="0" cellspacing="0" >
+  <tr>
+    <td></td>
+    </tr>
+  <tr>
+    <td><table width="100%" border="0">
+      <tr>
+        <td>{$hitsinfo}</td>
+        <td align="right">{$nav}</td>
+      </tr>
+    </table></td>
+    </tr>
+  <tr>
+    <td bgcolor="#FFFFFF"><table width="100%" border="0">
+      <tr>
+        <td bgcolor="#FFFFFF" class="sr_header">Fmt.</td>
+        <td bgcolor="#FFFFFF" class="sr_header">Callno</td>
+        <td bgcolor="#FFFFFF" class="sr_header">Title</td>
+        <td bgcolor="#FFFFFF" class="sr_header">Author</td>
+        <td bgcolor="#FFFFFF" class="sr_header">Publisher</td>
+        <td bgcolor="#FFFFFF" class="sr_header">Year</td>
+      </tr>
+      {section name=index loop=$marc}
+  <tr>
+    <td bgcolor="#FFFFFF" class="sr_row"><img src="{$THEMESDIR}images/{parse marc=$marc[index] field='fmt'}.gif" /></td>
+    <td bgcolor="#FFFFFF" class="sr_row">{parse marc=$marc[index] field='callno'}&nbsp;</td>
+            <td bgcolor="#FFFFFF" class="sr_row"><a href="?m=search&a=details&id={parse marc=$marc[index] field='code'}&curhost=0&mode={$mode}">{parse marc=$marc[index] field='title'}</a></td>
+    <td bgcolor="#FFFFFF" class="sr_row">{parse marc=$marc[index] field='author'}&nbsp;</td>
+    <td bgcolor="#FFFFFF" class="sr_row">{parse marc=$marc[index] field='publisher'}&nbsp;</td>
+    <td bgcolor="#FFFFFF" class="sr_row">{parse marc=$marc[index] field='year'}&nbsp;</td>
+  </tr>
+      {/section}
+    </table></td>
+    </tr>
+  
+
+  
+  <tr>
+    <td></td>
+    </tr>
+</table>
+</div>

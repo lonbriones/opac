@@ -1,0 +1,17 @@
+<?php
+// +----------------------------------------------------------------------+
+// | Copyright (c) 2006-2009 Kyung IL Tech, Inc.                          |
+// +----------------------------------------------------------------------+
+// |                                                                      |
+// +----------------------------------------------------------------------+
+// | Author: Dionylon Briones <deform_perspective@yahoo.co.uk>           |
+// +----------------------------------------------------------------------+
+//
+// $Id: index.php,v 1.1 2006/09/04 07:51:41 lon.briones Exp $
+
+if (DEFAULT_SEARCH_PAGE=='local'){
+  require_once('local.php');
+} else {
+  require_once('artl.php');   /*this option is for manila bulletin*/
+}
+?>

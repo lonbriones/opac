@@ -1,0 +1,50 @@
+<h2>Add Notice
+</h2>
+<form><input type="hidden" name="addnotice" value="1" style"padding:0;margin:0">
+<table width="100%">
+  <tr>
+    <td width="1" valign="top"><h3><strong class="error">{$error} {$message}</strong>{$hidden}</h3></td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="51%" valign="top"><table width="98%" align="center" cellpadding="5" cellspacing="5" bgcolor="#F0F9DD" class="box1">
+      <tr>
+        <td colspan="2" bgcolor="#F0F9DD"><strong>Add a notice</strong> </td>
+        </tr>
+      <tr>
+        <td colspan="2" bgcolor="#FFFFFF">Subject<br />
+          <input name="subject" type="text" id="subject" value="{$subject}" size="50" />
+          <br />
+          <br />
+          Message<br />
+		  <textarea name="notice" cols="38" rows="10" id="notice">{$noticemsg}</textarea>		
+		  <br />
+		  <input type="submit" name="Submit" value="Submit" />
+            <input type="reset" name="Submit2" value="Clear" /></td>
+        </tr>
+      
+      
+    </table></td>
+    <td width="49%" valign="top"><table width="100%" bgcolor="#D7E6FB" class="box1">
+      <tr>
+        <td><strong>Preview Notice</strong></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF">		
+		    {if $msg neq ""}<div id="dialogbox">{$msg}</div>{/if}
+		    <p>{section name=outer loop=$notice}
+		      
+		      </p>
+		    <p>[<a href="?m=admin&s=notice&action=delete&noticeno={$notice[outer].NOTICENO}">DELETE</a>]<strong> {$notice[outer].TITLE}
+			  </strong><I>{$notice[outer].PDATE}</I><br>
+			  {$notice[outer].MSG}			
+			  <br />
+			  <br />
+			  </p>
+			{/section}		</td>
+      </tr>
+    </table>
+	</td>
+  </tr>
+</table>
+</form>

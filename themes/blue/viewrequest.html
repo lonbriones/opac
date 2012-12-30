@@ -1,0 +1,26 @@
+<h3 align="center"><strong>User Requests</strong>
+</h3>
+<table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#FFD2E5">
+  <tr>
+    <td>Patron ID </td>
+    <td>Date</td>
+    <td>ISBN</td>
+    <td>TITLE</td>
+    <td>AUTHOR</td>
+    <td>PUBLISHER</td>
+    <td>YEAR</td>
+    <td>NOTE</td>
+  </tr>
+  {section name=outer loop=$requestdat}
+  <tr>
+    <td bgcolor="#FFFFFF">{$requestdat[outer].PATRONID}</td>
+    <td bgcolor="#FFFFFF">{$requestdat[outer].RQDATE}</td>
+    <td bgcolor="#FFFFFF">{$requestdat[outer].ISBN}</td>
+    <td bgcolor="#FFFFFF">{$requestdat[outer].TITLE}</td>
+    <td bgcolor="#FFFFFF">{$requestdat[outer].AUTHOR}</td>
+    <td bgcolor="#FFFFFF">{$requestdat[outer].PUBLISHER}</td>
+    <td bgcolor="#FFFFFF">{$requestdat[outer].RQYEAR}</td>
+    <td bgcolor="#FFFFFF">{$requestdat[outer].NOTE}</td>
+  </tr>
+  {/section}
+</table>

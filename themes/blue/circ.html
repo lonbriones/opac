@@ -1,0 +1,32 @@
+<h3>Circulation History</h3>
+<p><a href="?m=mylib&amp;s=hist">Display All</a> | <a href="?m=mylib&amp;s=hist&amp;action=borrowed">Borrowed Books</a> | <a href="?m=mylib&amp;s=hist&amp;action=unreturned">Unreturned Books</a> | <a href="?m=mylib&amp;s=hist&amp;action=overdue">Overdue</a> </p>
+<table width="100%" border="0" cellpadding="0" cellspacing="2" bgcolor="#FFE2A5">
+  <tr>
+    <td><table cellpadding="5" cellspacing="0" bgcolor="#FFE2A5" class="box1">
+      <tr >
+        <td width="1%" class="line1"><strong>Access No. </strong></td>
+        <td width="1%" class="line1"><strong>Borrowed Date </strong></td>
+        <td width="1%" class="line1"><strong>Returned Date </strong></td>
+        <td width="1%" class="line1"><strong>Due Date </strong></td>
+        <td class="line1"><strong>Callno</strong></td>
+        <td class="line1"><strong>Title</strong></td>
+        <td class="line1"><strong>Author</strong></td>
+      </tr>
+      {section name=outer loop=$items}
+  <tr>
+    <td bgcolor="#FFFFFF" class="line2">{$items[outer].ACCESSNO}</td>
+    <!-- Wilson edited
+    <td bgcolor="#FFFFFF" class="line2">{$items[outer].CHKIN}</td> 
+	to this one :) -->
+    <td bgcolor ="#FFFFFF" class ="line2">{$items[outer].CHKOUT|date_format:"%m/%d/%Y"}</td>
+    <td bgcolor="#FFFFFF" class="line2">{$items[outer].CHKIN|date_format:"%m/%d/%Y"}</td>
+    <td bgcolor="#FFFFFF" class="line2">{$items[outer].DUE|date_format:"%m/%d/%Y"}</td>
+    <td bgcolor="#FFFFFF" class="line2">{$items[outer].CALLNO}</td>
+    <td bgcolor="#FFFFFF" class="line2">{$items[outer].TITLE}</td>
+    <td bgcolor="#FFFFFF" class="line2">{$items[outer].AUTHOR}</td>
+  </tr>
+      {/section}
+    </table></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
